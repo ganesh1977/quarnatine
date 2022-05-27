@@ -3,5 +3,3 @@ packages:
     version: [">=0.8.0", "<0.9.0"]
   - package: cerebriumai/airbyte_github
     version: 0.2.0
-  - package: fishtownanalytics/dbt
-    version: 1.0.0
