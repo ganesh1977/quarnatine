@@ -32,20 +32,28 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  airbyte_utils:  
-    # Config indicated by + and applies to all files under models/example/
+  +transient: false
+  airbyte_utils:
+    +materialized: table
     generated:
       airbyte_ctes:
-	+tags: airbyte_internal_cte
-	+materialized: ephemeral
-      airbyte_views:
-	+tags: airbyte_internal_views
-	+materialized: view
+        +tags: airbyte_internal_cte
+        +materialized: ephemeral
+      airbyte_incremental:
+        +tags: incremental_tables
+        +materialized: incremental
+        +on_schema_change: sync_all_columns
       airbyte_tables:
-	+tags: normalized_tables
-	+materialized: table
-    +materialized: table
+        +tags: normalized_tables
+        +materialized: table
+      airbyte_views:
+        +tags: airbyte_internal_views
+        +materialized: view
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ["airbyte_utils", "dbt_utils"]
     
-    quarantine:
-     	+schema: quarantine
+  - quarantine:
+   	+schema: quarantine
      	+materialized: table	
