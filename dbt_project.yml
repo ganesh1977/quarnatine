@@ -35,15 +35,15 @@ models:
   airbyte_utils:  
     # Config indicated by + and applies to all files under models/example/
     generated:
-	airbyte_ctes:
-		+tags: airbyte_internal_cte
-		+materialized: ephemeral
-	airbyte_views:
-		+tags: airbyte_internal_views
-		+materialized: view
-	airbyte_views:
-		+tags: normalized_tables
-		+materialized: table
+      airbyte_ctes:
+	 +tags: airbyte_internal_cte
+	 +materialized: ephemeral
+      airbyte_views:
+	 +tags: airbyte_internal_views
+	 +materialized: view
+      airbyte_views:
+	 +tags: normalized_tables
+	 +materialized: table
     +materialized: table
     
     quarantine:
