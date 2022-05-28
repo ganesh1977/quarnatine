@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: quarantine
+    description: This table for Covid patient Details
+
+    columns:
+      - name: date
+        description: Customer Date
+
+      - name: key
+        description: Customer's key
+
+      - name: new_confirmed
+        description: Customer's confirmed
+
+      - name: new_deceased
+        description: Date (UTC) of a customer's deceased
+
+      - name: new_recovered
+        description: Date (UTC) of a customer's recovered
+
+      - name: new_tested
+        description: Count of the number of orders a customer tested
+
+      - name: total_confirmed
+        description: Total value (AUD) of a customer's confirmed
+        
+      - name: total_deceased
+        description: Total value (AUD) of a customer's decesased
+        
+      - name: total_recovered
+        description: Total value (AUD) of a customer's recovered
+        
+      - name: total_tested
+        description: Total value (AUD) of a customer's total
