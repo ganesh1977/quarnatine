@@ -49,9 +49,7 @@ models:
       airbyte_views:
         +tags: airbyte_internal_views
         +materialized: view
-  dbt_labs:
-
-    # This configures models found in models/quarentine/
-    quarentine:
-      +enabled: true
-      +materialized: view
+  airbyte_dbt:
+      materialized: table
+      staging:
+        materialized: view
