@@ -50,6 +50,5 @@ models:
         +tags: airbyte_internal_views
         +materialized: view
   airbyte_dbt:
-      materialized: table
-      staging:
-        materialized: view
+      +schema: quarantine
+      materialized: table     
