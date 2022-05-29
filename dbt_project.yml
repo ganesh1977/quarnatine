@@ -18,8 +18,13 @@ test-paths: ["tests"]
 #seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
+source-paths: ["models"]
+docs-paths: ["docs"]
 
-target-path: "target"  # directory which will store compiled SQL files
+target-path: "../build"  # directory which will store compiled SQL files
+log-path: "../logs"
+modules-path: "../dbt_modules"
+
 clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
@@ -33,7 +38,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   +transient: false
-  airbyte_utils:
+  airbyte_dbt:
     +materialized: table
     generated:
       airbyte_ctes:
@@ -49,6 +54,6 @@ models:
       airbyte_views:
         +tags: airbyte_internal_views
         +materialized: view
-  airbyte_dbt:
+#airbyte_dbt:
       +schema: quarantine
       materialized: table     
