@@ -1,5 +1,5 @@
 
-version: 2
+version: 21
 
 models:
   - name: my_first_quarantine
